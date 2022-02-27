@@ -1,0 +1,332 @@
+1. write a java program to perform basic calculator operations.
+
+import java.util.Scanner;
+
+class Main {
+  public static void main(String[] args) {
+
+    char operator;
+    Double number1, number2, result;
+
+    // create an object of Scanner class
+    Scanner input = new Scanner(System.in);
+
+    // ask users to enter operator
+    System.out.println("Choose an operator: +, -, *, or /");
+    operator = input.next().charAt(0);
+
+    // ask users to enter numbers
+    System.out.println("Enter first number");
+    number1 = input.nextDouble();
+
+    System.out.println("Enter second number");
+    number2 = input.nextDouble();
+
+    switch (operator) {
+
+      // performs addition between numbers
+      case '+':
+        result = number1 + number2;
+        System.out.println(number1 + " + " + number2 + " = " + result);
+        break;
+
+      // performs subtraction between numbers
+      case '-':
+        result = number1 - number2;
+        System.out.println(number1 + " - " + number2 + " = " + result);
+        break;
+
+      // performs multiplication between numbers
+      case '*':
+        result = number1 * number2;
+        System.out.println(number1 + " * " + number2 + " = " + result);
+        break;
+
+      // performs division between numbers
+      case '/':
+        result = number1 / number2;
+        System.out.println(number1 + " / " + number2 + " = " + result);
+        break;
+
+      default:
+        System.out.println("Invalid operator!");
+        break;
+    }
+
+    input.close();
+  }
+}
+
+ouptput-
+Choose an operator: +, -, *, or /
+*
+Enter first number
+3
+Enter second number
+9
+3.0 * 9.0 = 27.
+
+
+2.write a java program to calculate fibonacci series upto n numbers.
+class Main {
+  public static void main(String[] args) {
+
+    int n = 10, firstTerm = 0, secondTerm = 1;
+    System.out.println("Fibonacci Series till " + n + " terms:");
+
+    for (int i = 1; i <= n; ++i) {
+      System.out.print(firstTerm + ", ");
+
+      // compute the next term
+      int nextTerm = firstTerm + secondTerm;
+      firstTerm = secondTerm;
+      secondTerm = nextTerm;
+    }
+  }
+}
+output-
+Fibonacci Series till 10 terms:
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34
+
+3.write a java program to calculate a factorial of a number.
+public class Factorial {
+
+    public static void main(String[] args) {
+
+        int num = 10;
+        long factorial = 1;
+        for(int i = 1; i <= num; ++i)
+        {
+            // factorial = factorial * i;
+            factorial *= i;
+        }
+        System.out.printf("Factorial of %d = %d", num, factorial);
+    }
+}
+output-
+Factorial of 10 = 3628800
+
+4.write a java program to find out whether given string is palindrome or not.
+public class Palindrome
+{
+    public static void main(String args[])
+    {
+        String a, b = "";
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter the string you want to check:");
+        a = s.nextLine();
+        int n = a.length();
+        for(int i = n - 1; i >= 0; i--)
+        {
+            b = b + a.charAt(i);
+        }
+        if(a.equalsIgnoreCase(b))
+        {
+            System.out.println("The string is palindrome.");
+        }
+        else
+        {
+            System.out.println("The string is not palindrome.");
+        }
+    }
+}
+output-
+$ javac Palindrome.java
+$ java Palindrome
+
+Enter the string you want to check:NeveroddorEVen
+The string is palindrome.
+
+5.write a java program to calculate permutation and combination of two numbers
+
+import java.util.Scanner;
+
+public class PermutationCombinationMain
+{
+    public static int fact(int num){
+        int fact=1, i;
+        for(i=1; i<=num; i++){
+            fact = fact*i;
+        }
+        return fact;
+    }
+    public static void main(String args[]){
+        int n, r;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Value of n : ");
+        n = scanner.nextInt();
+        System.out.print("Enter Value of r : ");
+        r = scanner.nextInt();
+
+        System.out.print("NCR is " +(fact(n)/(fact(n-r)*fact(r))));
+        System.out.print("\nNPR is " +(fact(n)/(fact(n-r))));
+    }
+}
+output-
+Enter Value of n : 8
+Enter Value of r : 4
+NCR is 70
+NPR is 1680
+
+6.write a program in java to print diamond pattern
+import java.util.Scanner;
+public class Diamond
+{
+    public static void main(String args[]) 
+    {
+        int n, i, j, space = 1;
+        System.out.print("Enter the number of rows: ");
+        Scanner s = new Scanner(System.in);
+        n = s.nextInt();
+        space = n - 1;
+        for (j = 1; j <= n; j++) 
+        {
+            for (i = 1; i <= space; i++) 
+            {
+                System.out.print(" ");
+            }
+            space--;
+            for (i = 1; i <= 2 * j - 1; i++) 
+            {
+                System.out.print("*");                
+ }
+            System.out.println("");
+        }
+        space = 1;
+        for (j = 1; j <= n - 1; j++) 
+        {
+            for (i = 1; i <= space; i++) 
+            {
+                System.out.print(" ");
+            }
+            space++;
+            for (i = 1; i <= 2 * (n - j) - 1; i++) 
+            {
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
+    }
+}
+output-
+
+$ javac Diamond.java
+$ java Diamond
+
+Enter the number of rows: 5
+    *
+   *
+  ***
+ ***
+***
+ ***
+  ***
+   *
+    *
+
+7.write a java program to reverse the letters present in the given string.
+package Edureka;
+import java.util.*;
+public class StringReverse{
+public static void main(String args[]) {
+String initial, rev="";
+Scanner in=new Scanner(System.in);
+System.out.println("Enter the string to reverse");
+initial=in.nextLine();
+int length=initial.length();
+for(int i=length-1;i>=0;i--)
+  rev=rev+initial.charAt(i);
+System.out.println("Reversed string: "+rev);
+}
+}
+output-
+Enter the string to reverse
+HELLO EDUREKA
+Reversed string: AKERUDE OLLEH
+
+8.write a java program to check whether the given array is mirrior inverse or not
+#include<bits/stdc++.h> 
+using namespace std; 
+
+// Function that returns true if the array is mirror-inverse 
+bool isMirrorInverse(int arr[], int n) 
+{ 
+    for (int i = 0; i < n; i++) 
+    { 
+
+        // If condition fails for any element 
+        if (arr[arr[i]] != i) 
+            return false; 
+    } 
+
+    // Given array is mirror-inverse 
+    return true; 
+} 
+
+int main() 
+{ 
+        int arr[] = { 1, 2, 3, 0 }; 
+        int n = sizeof(arr)/sizeof(arr[0]); 
+        if (isMirrorInverse(arr,n)) 
+            cout << "Yes"; 
+        else
+            cout << "No"; 
+        return 0; 
+} 
+
+output-
+NO
+9.write a java program to remove elements from an array list
+import java.util.ArrayList;  
+public class ArrayListRemoveExample3{  
+public static void main(String[] args){  
+List<String> colors = new ArrayList<>();  
+colors.add("red");              // ["red"]  
+colors.add("blue");             // ["red" , "blue"]  
+colors.remove(0);               // return "red"  
+System.out.println(colors.remove(0));   // print "blue"  
+System.out.println(colors);     // []  
+}  
+}  
+output-
+[]
+
+10.write a java program to find the transpose of a gien matix
+public class Transpose {
+
+    public static void main(String[] args) {
+        int row = 2, column = 3;
+        int[][] matrix = { {2, 3, 4}, {5, 6, 4} };
+
+        // Display current matrix
+        display(matrix);
+
+        // Transpose the matrix
+        int[][] transpose = new int[column][row];
+        for(int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                transpose[j][i] = matrix[i][j];
+            }
+        }
+
+        // Display transposed matrix
+        display(transpose);
+    }
+
+    public static void display(int[][] matrix) {
+        System.out.println("The matrix is: ");
+        for(int[] row : matrix) {
+            for (int column : row) {
+                System.out.print(column + "    ");
+            }
+            System.out.println();
+     }
+output-
+The matrix is:
+2    3    4    
+5    6    4    
+The matrix is:
+2    5    
+3    6    
+4    4
